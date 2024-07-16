@@ -161,7 +161,7 @@ setup({config})                                                *colorizer.setup*
 
 
     Parameters: ~
-	{config} -  table: Config containing above parameters.
+	{config} -  table: Config containing the above parameters.
 
     Usage:~
 	`require'colorizer'.setup()`

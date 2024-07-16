@@ -106,6 +106,8 @@ library to do custom highlighting themselves.
       },
       -- all the sub-options of filetypes apply to buftypes
       buftypes = {},
+      -- disable built-in commands with `false`
+      default_commands = true,
   }
 ```
 
@@ -176,7 +178,7 @@ In `user_default_options`, there are 2 types of options
 
 1. Individual options - `names`, `RGB`, `RRGGBB`, `RRGGBBAA`, `hsl_fn`, `rgb_fn` , `RRGGBBAA`, `AARRGGBB`, `tailwind`, `sass`
 
-1. Alias options - `css`, `css_fn` 
+1. Alias options - `css`, `css_fn`
 
 If `css_fn` is true, then `hsl_fn`, `rgb_fn` becomes `true`
 
