@@ -35,6 +35,7 @@ buffer.highlight_mode_names = {
   background = "mb",
   foreground = "mf",
   virtualtext = "mv",
+  inline = "mv",
 }
 
 --- Clean the highlight cache
@@ -105,7 +106,7 @@ function buffer.add_highlight(buf, ns, line_start, line_end, data, options)
         api.nvim_buf_add_highlight(buf, ns, hlname, linenr, hl.range[1], hl.range[2])
       end
     end
-  elseif options.mode == "virtualtext" then
+  elseif options.mode == "virtualtext" or options.mode == "inline" then
     for linenr, hls in pairs(data) do
       for _, hl in ipairs(hls) do
         local hlname = create_highlight(hl.rgb_hex, mode)
@@ -117,10 +118,14 @@ function buffer.add_highlight(buf, ns, line_start, line_end, data, options)
           priority = 0,
         }
 
-        if options.virtualtext_inline then
+        if options.mode == "inline" then
           start_col = hl.range[1]
           opts.virt_text_pos = "inline"
-          opts.virt_text = { { (options.virtualtext or "■") .. " ", hlname } }
+          if options.virtualtext_inline then
+            opts.virt_text = { { (options.virtualtext or "■") .. " ", hlname } }
+          else
+            opts.virt_text = { { (options.virtualtext or "■") .. " " } }
+          end
         end
 
         opts.end_col = start_col
