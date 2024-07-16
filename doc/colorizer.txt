@@ -300,11 +300,11 @@ Functions: ~
     containing
  rgb_hex and range per line
 
-    |rehighlight| - Rehighlight the buffer if colorizer is active
+    |rehighlight| - Rehighlight the buffer if the colorizer is active
 
 Tables: ~
-    |highlight_mode_names| - Highlight mode which will be use to render the
-    colour
+    |highlight_mode_names| - Highlight mode which will be used to render the
+    color
 
 Fields: ~
     |default_namespace| - Default namespace used in `highlight` and
@@ -351,7 +351,7 @@ highlight({buf}, {ns}, {line_start}, {line_end}, {options}, {options_local})
 	{options_local} -  table: Buffer local variables
 
     returns:~
-	nil or boolean or number,table
+	nil or boolean or number, table
 
 
 
@@ -377,7 +377,7 @@ parse_lines({buf}, {lines}, {line_start}, {options})
 
 						  *colorizer.buffer.rehighlight*
 rehighlight({buf}, {options}, {options_local}, {use_local_lines})
-    Rehighlight the buffer if colorizer is active
+    Rehighlight the buffer if the colorizer is active
 
     Parameters: ~
 	{buf} -  number: Buffer number
@@ -387,12 +387,12 @@ rehighlight({buf}, {options}, {options_local}, {use_local_lines})
 	options_local
 
     returns:~
-	nil or boolean or number,table
+	nil or boolean or number, table
 
 
 
 highlight_mode_names                     *colorizer.buffer.highlight_mode_names*
-    Highlight mode which will be use to render the colour
+    Highlight mode which will be used to render the colour
 
     Fields: ~
 	{background} -
@@ -436,7 +436,7 @@ hsl_to_rgb({h}, {s}, {l})                           *colorizer.color.hsl_to_rgb*
 	{l} -  number: Lightness
 
     returns:~
-	number or nil,number or nil,number or nil
+	number or nil, number or nil, number or nil
 
 
 
@@ -502,8 +502,8 @@ compile({matchers}, {matchers_trie})                 *colorizer.matcher.compile*
 make({options})                                         *colorizer.matcher.make*
     Parse the given options and return a function with enabled parsers.
 
-    if no parsers enabled then return false
-    Do not try make the function again if it is present in the cache
+    if no parsers are enabled then return false
+    Do not try to make the function again if it is present in the cache
 
 
     Parameters: ~
@@ -533,7 +533,7 @@ Functions: ~
 parser.argb_hex_parser({line}, {i})
     parse for 0xaarrggbb and return rgb hex.
 
-     a format used in android apps
+     a format used in Android apps
 
 
     Parameters: ~
@@ -541,7 +541,7 @@ parser.argb_hex_parser({line}, {i})
 	{i} -  number: index of line from where to start parsing
 
     returns:~
-	number or nil: index of line where the hex value ended
+	number or nil: index of the line where the hex value ended
 	string or nil: rgb hex value
 
 
@@ -575,7 +575,7 @@ parser.hsl_function_parser({line}, {i}, {opts})
 	{opts} -  table: Values passed from matchers like prefix
 
     returns:~
-	number or nil: Index of line where the hsla/hsl function ended
+	number or nil: Index of the line where the hsla/hsl function ended
 	string or nil: rgb hex value
 
 
@@ -590,17 +590,17 @@ Helper function to parse argb
 LUA API                                         *colorizer.parser.names-lua-api*
 
 Functions: ~
-    |parser.name_parser| - Grab all the colour values from
+    |parser.name_parser| - Grab all the color values from
     `vim.api.nvim_get_color_map` and create a lookup table.
 
 
 
 				     *colorizer.parser.names.parser.name_parser*
 parser.name_parser({line}, {i}, {opts})
-    Grab all the colour values from `vim.api.nvim_get_color_map` and create a
+    Grab all the color values from `vim.api.nvim_get_color_map` and create a
     lookup table.
 
-     COLOR_MAP is used to store the colour values
+     COLOR_MAP is used to store the color values
 
 
     Parameters: ~
