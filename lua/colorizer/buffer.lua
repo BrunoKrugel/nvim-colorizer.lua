@@ -124,7 +124,7 @@ function buffer.add_highlight(buf, ns, line_start, line_end, data, options)
           if options.virtualtext_inline then
             opts.virt_text_pos = "inline"
           else
-            opts.virt_text_pos = "eol"
+            opts.virt_text_pos = "eow"
           end
         end
 
