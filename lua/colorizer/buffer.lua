@@ -120,9 +120,11 @@ function buffer.add_highlight(buf, ns, line_start, line_end, data, options)
 
         if options.mode == "inline" then
           start_col = hl.range[1]
+          opts.virt_text_pos = "inline"
           opts.virt_text = { { (options.virtualtext or "■") .. " ", hlname } }
+
           if options.virtualtext_inline then
-            start_col = hl.range[2]
+
           end
         end
 
