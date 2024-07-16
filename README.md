@@ -20,9 +20,7 @@ use 'NvChad/nvim-colorizer.lua'
 
 As long as you have `malloc()` and `free()` on your system, this will work.
 Which includes Linux, OSX, and Windows.
-
-One line setup. This will create an `autocmd` for `FileType *` to highlight
-every filetype.
+One-line setup. This will create an `autocmd` for `FileType *` to highlight every file type.
 
 **NOTE**: You should add this line after/below where your plugins are setup.
 
@@ -58,14 +56,12 @@ require("colorizer").detach_from_buffer(0, { mode = "virtualtext", css = true})
 Mostly, **RAW SPEED**.
 
 This has no external dependencies, which means you install it and **it just
-works**. Other colorizers typically were synchronous and slow, as well. Being
+works**. Other colonizers typically were synchronous and slow, as well. Being
 written with performance in mind and leveraging the excellent LuaJIT and a
-handwritten parser, updates can be done in real time. There are plugins such as
-[hexokinase](https://github.com/RRethy/vim-hexokinase) which have good
-performance, but it has some difficulty with becoming out of sync. The downside
+handwritten parser, updates can be done in real-time. The downside
 is that _this only works for Neovim_, and that will never change.
 
-Apart from that, it only applies the highlights to the current visible contents, so
+Apart from that, it only applies the highlights to the currently visible contents, so
 even if a big file is opened, the editor won't just choke on a blank screen.
 
 This idea was copied from
@@ -92,7 +88,7 @@ library to do custom highlighting themselves.
         hsl_fn = false, -- CSS hsl() and hsla() functions
         css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
         css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-        -- Available modes for `mode`: foreground, background,  virtualtext
+        -- Available modes for `mode`: foreground, background, virtualtext, inline
         mode = "background", -- Set the display mode.
         -- Available methods are false / true / "normal" / "lsp" / "both"
         -- True is same as normal
@@ -116,6 +112,7 @@ MODES:
 - `foreground`: sets the foreground text color.
 - `background`: sets the background text color.
 - `virtualtext`: indicate the color behind the virtualtext.
+- `inline`: indicate the color with inline virtualtext (Neovim v0.10+).
 
 For basic setup, you can use a command like the following.
 
@@ -216,7 +213,7 @@ require 'colorizer'.setup {
 }
 ```
 
-All the above examples can also be apply to buftypes. Also no buftypes trigger colorizer by default
+All the above examples can also be applied to buftypes. Also, no buftypes trigger colorizer by default
 
 Buftype value is fetched by `vim.bo.buftype`
 
@@ -235,18 +232,15 @@ require 'colorizer'.setup(
 For lower level interface, see the [LuaDocs for API details](https://nvchad.com/nvim-colorizer.lua/modules/colorizer.html) or use `:h colorizer` once installed.
 
 ## Extras
-
-Documentaion is generated using ldoc. See
+Documentation is generated using ldoc. See
 [scripts/gen_docs.sh](https://github.com/NvChad/nvim-colorizer.lua/blob/master/scripts/gen_docs.sh)
 
 ## TODO
 
-- [ ] Add more colour types ( var, advanced css functions )
+- [ ] Add more color types ( var, advanced CSS functions )
 - [ ] Add more display modes. E.g - sign column
-- [ ] Use a more space efficient trie implementation.
+- [ ] Use a more space-efficient trie implementation.
 
 ## Similar projects
 
 [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors)
-
-[vim-hexokinase](https://github.com/RRethy/vim-hexokinase)
